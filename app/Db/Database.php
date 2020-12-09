@@ -11,14 +11,14 @@ class Database {
      * Host de conexão com o banco de dados
      * @var string
      */
-    const HOST = 'localhost';
+    const HOST = '172.17.0.2';
 
     /**
      * Nome da DB
      * @var string
      */
 
-    const NAME = 'container-teste-mysql';
+    const NAME = 'wdev-vagas';
 
     /**
      * Usuário da DB
@@ -30,7 +30,13 @@ class Database {
      * Senha de acesso ao banco de dados
      * @var string
      */
-    const PASS = 'senha-mysql';    
+    const PASS = 'root';  
+    
+    /**
+     * PORT de acesso ao banco de dados
+     * @var string
+     */
+    const PORT = '3306';  
 
     /**
      * Tabela do banco de dados
@@ -58,7 +64,7 @@ class Database {
      */
     private function setConnection(){
         try {
-            $this->connection = new PDO('mysql:host='.self::HOST.'; dbname='.self::NAME, self::USER, self::PASS);
+            $this->connection = new PDO('mysql:host='.self::HOST.'; port=3306,dbname='.self::NAME, self::USER, self::PASS);
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch(PDOException $e) {
             // não fazer em produção
