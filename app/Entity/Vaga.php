@@ -35,7 +35,7 @@ class Vaga {
         $this->data = date('Y-m-d H:i:s');
 
         // Inserir vaga na DB
-        
+        // Atribuir o ID da vaga na instância
     }
 
 }
